@@ -1,0 +1,9 @@
+h2 {
+    border: 5px solid rgb(58, 17, 206);
+}
+
+.sub_title {
+    background-color: black;
+    color: white;
+    font-size: 25px;
+}
