@@ -7,6 +7,7 @@ import DemoCss from './assets/components/DemoCss/DemoCss'
 import DemoState from './assets/components/DemoState/DemoState'
 import BaiTap1 from './assets/components/DemoState/BaiTap1'
 import BaiTap1Props from './assets/components/BaiTap/BaiTap1Props'
+import BaiTapHienThiDienThoai from './assets/components/BaiTap/BaiTapHienThiDienThoai/BaiTapHienThiDienThoai'
 function App() {
   const [count, setCount] = useState(0)
   function updateCount() {
@@ -33,7 +34,8 @@ function App() {
         </div>
       </div> */}
       {/* <BaiTap1 updateCount={updateCount} abc={count}></BaiTap1> */}
-      <BaiTap1Props></BaiTap1Props>
+      {/* <BaiTap1Props></BaiTap1Props> */}
+      <BaiTapHienThiDienThoai></BaiTapHienThiDienThoai>
     </>
   )
 }
