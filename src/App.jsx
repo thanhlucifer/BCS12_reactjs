@@ -8,14 +8,17 @@ import DemoState from './assets/components/DemoState/DemoState'
 import BaiTap1 from './assets/components/DemoState/BaiTap1'
 import BaiTap1Props from './assets/components/BaiTap/BaiTap1Props'
 import BaiTapHienThiDienThoai from './assets/components/BaiTap/BaiTapHienThiDienThoai/BaiTapHienThiDienThoai'
+import { Route, Routes } from 'react-router-dom'
+import HomeTemplate from './template/HomeTemplate/HomeTemplate'
+import PageNotFound from './assets/components/PageNotFound/PageNotFound'
 function App() {
-  const [count, setCount] = useState(0)
-  function updateCount() {
-    setCount(count + 1)
-  }
+  // const [count, setCount] = useState(0)
+  // function updateCount() {
+  //   setCount(count + 1)
+  // }
   return (
     <>
-    {/* <DemoState></DemoState>
+      {/* <DemoState></DemoState>
     <DemoCss></DemoCss>
     <DemoEvent></DemoEvent>
     <HeaderComponent></HeaderComponent>
@@ -35,7 +38,15 @@ function App() {
       </div> */}
       {/* <BaiTap1 updateCount={updateCount} abc={count}></BaiTap1> */}
       {/* <BaiTap1Props></BaiTap1Props> */}
-      <BaiTapHienThiDienThoai></BaiTapHienThiDienThoai>
+      {/* <BaiTapHienThiDienThoai></BaiTapHienThiDienThoai> */}
+      <Routes>
+        <Route path='/bai-tap-hien-thi-dien-thoai' element={<BaiTapHienThiDienThoai />} />
+        <Route path='/' element={<HomeTemplate />} >
+        {/* thuoc tinh index giup xac dinh 1 component con se hien thi cung luc voi component cha  */}
+          <Route index element={<BaiTap1Props />} />
+        </Route>
+        <Route path='*' element={<PageNotFound />}/>
+      </Routes>
     </>
   )
 }

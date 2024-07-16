@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemPokemon from './ItemPokemon';
+import { DatePicker } from 'antd';
 
 const BaiTap1Props = () => {
     const pokemons = [
@@ -86,6 +87,7 @@ const BaiTap1Props = () => {
     ];
     return (
         <div>
+          
             <h2 className='text-center font-bold text-3xl'>POKEMON</h2>
             <div className='grid grid-cols-5'>
                 {pokemons.map((item, index) => {
