@@ -1,12 +1,12 @@
-import React from 'react'
-import ItemPokemon from './ItemPokemon';
-import { DatePicker } from 'antd';
-import { useSelector } from 'react-redux';
+import { createSlice } from '@reduxjs/toolkit'
 
-const BaiTap1Props = () => {
-    const { pokemon } = useSelector((state) => state.pokemonSlide);
-    console.log(pokemon)
-    const pokemons = [
+const initialState = {
+    ten: 'pokemon',
+    type: 'Electric',
+    damage: 55,
+    defense: 40,
+    attack: 90,
+    pokemon: [
         {
             name: "Pikachu",
             image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
@@ -87,20 +87,15 @@ const BaiTap1Props = () => {
             defense: 95,
             attack: 80
         }
-    ];
-    return (
-        <div>
-          
-            <h2 className='text-center font-bold text-3xl'>POKEMON</h2>
-            <div className='grid grid-cols-5'>
-                {pokemons.map((item, index) => {
-                    const {image, name, type, attack, defense, damage} = item
-                    return <ItemPokemon pokemon={item}></ItemPokemon>
-                    
-                })}
-            </div>
-        </div>
-    )
+    ]
 }
 
-export default BaiTap1Props
+const pokemonSlide = createSlice({
+  name: 'pokemonSlide',
+  initialState,
+  reducers: {}
+});
+
+export const {} = pokemonSlide.actions
+
+export default pokemonSlide.reducer

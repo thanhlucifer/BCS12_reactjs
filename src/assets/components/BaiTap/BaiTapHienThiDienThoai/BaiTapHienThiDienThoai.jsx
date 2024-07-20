@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import DanhSachDienThoai from './DanhSachDienThoai';
 import ChiTietDienThoai from './ChiTietDienThoai';
+import { useSelector } from 'react-redux'
 const iphones = [
     {
         name: "iPhone 12",
@@ -44,6 +45,8 @@ const iphones = [
     }
 ];
 const BaiTapHienThiDienThoai = () => {
+    const { iphone } = useSelector((state) => state.dienThoaiSlide)
+    console.log(iphone);
     let [dienthoai, setdienthoai ] = useState(iphones[0]); 
     console.log(dienthoai);
     function updateDienThoai(dienthoai) {

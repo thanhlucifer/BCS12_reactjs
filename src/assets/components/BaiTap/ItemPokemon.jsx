@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const ItemPokemon = ({ pokemon }) => {
     return (
         <div className="p-3">
@@ -14,7 +14,7 @@ const ItemPokemon = ({ pokemon }) => {
                     <h3>{pokemon?.name}</h3>
                     <p>Tan cong: {pokemon?.attack}</p>
                     <p>Phong thu: {pokemon?.defense}</p>
-                    <button>Xem chi tiet</button>
+                    <Link to={`showdetail/${pokemon.name}`}>Xem chi tiet</Link>
                 </>
             )}
 
