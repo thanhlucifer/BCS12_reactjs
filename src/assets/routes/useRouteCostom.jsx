@@ -7,6 +7,7 @@ import BaiTapHienThiDienThoai from '../components/BaiTap/BaiTapHienThiDienThoai/
 import ShowDetail from '../components/ShowDetail'
 import { path } from '../common/path'
 import DemoRedux from '../components/DemoRedux/DemoRedux'
+import BaiTapLacLiNgau from '../components/BaiTap/BaiTapLacLiNgau/BaiTapLacLiNgau'
 const useRouteCostom = () => {
     const element = useRoutes([
         {
@@ -28,6 +29,10 @@ const useRouteCostom = () => {
               {
                 path: path.demoRedux ,
                 element: <DemoRedux/>
+              },
+              {
+                path: path.lacxingau ,
+                element: <BaiTapLacLiNgau/>
               }
           ]
         },

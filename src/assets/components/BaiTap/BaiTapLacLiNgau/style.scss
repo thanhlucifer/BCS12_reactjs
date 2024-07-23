@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "Pony";
+    src: url('./../../../font/Pony.ttf');
+}
+
+.bt2 {
+    font-family: "Pony";
+    @apply text-center text-5xl;
+    background-image: url(./../../../img/bgGame.png);
+    @apply text-center h-screen p-10;
+}
+
+.xingau {
+    @apply mt-5;
+}
+
+.ketqua {
+    @apply mt-5 text-2xl;
+}
+
+.btnXingau {
+    @apply text-white p-5 text-2xl border-green-600 rounded-md border-2 w-40 h-40 bg-green-300;
+}
+
+.btnPlay {
+    @apply text-white bg-red-400 py-3 px-5 mt-2 rounded-lg;
+}

@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import pokemonSlide from './slides/pokemonSlide'
 import dienThoaiSlide from './slides/dienThoaiSlide'
 import userSlide from './slides/userSlide'
+import xingauSlide from './slides/xingauSlide'
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     },
     pokemonSlide,
     dienThoaiSlide,
-    userSlide
+    userSlide,
+    xingauSlide
   },
 })

@@ -20,13 +20,16 @@ const HomeTemplate = () => {
     {
       to: path.demoRedux,
       content: "Demo Redux"
-    }
+    },
+    {
+      to: path.lacxingau,
+      content: "Lac Xi Ngau"
+    },
   ]
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  
   return (
     <Layout className='min-h-screen'>
       <Header
