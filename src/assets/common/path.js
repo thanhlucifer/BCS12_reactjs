@@ -3,6 +3,6 @@ export const path = {
     baiTapHienThiDienThoai: "bai-tap-hien-thi-dien-thoai",
     showdetail: "showdetail",
     demoRedux: '/demo-redux',
-    lacxingau: '/lac-xingau'
+    lacxingau: '/lac-xingau',
 }
 

@@ -25,6 +25,10 @@ const HomeTemplate = () => {
       to: path.lacxingau,
       content: "Lac Xi Ngau"
     },
+    {
+      to: "/demo-useEffect",
+      content: "Demo useEffect",
+    },
   ]
   const {
     token: { colorBgContainer, borderRadiusLG },
