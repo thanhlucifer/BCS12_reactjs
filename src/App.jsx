@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React , { useState } from 'react'
 import HeaderComponent from './assets/components/HeaderComponent'
 import HomeDemo from './assets/components/HomeDemo'
 import RenderShose from './assets/components/RenderShose'
@@ -13,10 +13,31 @@ import HomeTemplate from './template/HomeTemplate/HomeTemplate'
 import PageNotFound from './assets/components/PageNotFound/PageNotFound'
 import ShowDetail from './assets/components/ShowDetail'
 import useRouteCostom from './assets/routes/useRouteCostom'
+import { message } from 'antd';
+
+export const NotificationContext = React.createContext();
 function App() {
+  const [messageApi, contextHolder] = message.useMessage();
+  const handleNotification = (status, content) => {
+    messageApi.open({
+      type: status,
+      content,
+    });
+  };
   const routes = useRouteCostom();
   return (
-   routes
+    <>
+    <NotificationContext.Provider
+        value={{
+          abc: "Linh đa",
+          handleNotification,
+        }}
+      >
+        {contextHolder}
+        {routes}
+      </NotificationContext.Provider>
+    </>
+   
   )
   // const [count, setCount] = useState(0)
   // function updateCount() {

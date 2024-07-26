@@ -1,11 +1,14 @@
-import React from 'react'
+import React , { useState } from 'react'
 import ItemPokemon from './ItemPokemon';
 import { DatePicker } from 'antd';
 import { useSelector } from 'react-redux';
+import useInput from '../../../hooks/useInput';
 
 const BaiTap1Props = () => {
     const { pokemon } = useSelector((state) => state.pokemonSlide);
     console.log(pokemon)
+    const taikhoan = useInput('');
+    console.log(taikhoan)
     const pokemons = [
         {
             name: "Pikachu",
@@ -99,6 +102,7 @@ const BaiTap1Props = () => {
                     
                 })}
             </div>
+            <input type="text" placeholder='Vui long nhap tai khoan' {...taikhoan}/>
         </div>
     )
 }

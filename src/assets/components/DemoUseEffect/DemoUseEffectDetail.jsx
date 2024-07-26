@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
+import { useParams, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 const DemoUseEffectDetail = () => {
-  const [shoe, setShoe] = useState();
+  const [shoe, setShoe] = useState({});
+  const [searchParam, setSearchParam] = useSearchParams();
+  const datagiatien = searchParam.get('giatien');
+  console.log(datagiatien);
   // shoe.tuoi ==> undifined
   const { id } = useParams();
   useEffect(() => {
@@ -15,11 +18,26 @@ const DemoUseEffectDetail = () => {
         setShoe(res.data.content);
       })
       .catch((err) => {});
-  }, []);
+  }, [id]);
 
   console.log(shoe);
+  useEffect(() => {
+    return () => {
+      console.log('component useeffect detail bi xoa');
+      //tracking thoi gian nguoi dung su dung
 
-  return shoe ? (
+    }
+  }, [])
+
+  return (
+    <>
+    <input type="text" className="border p-2 border-black rounded-md" placeholder="vui long nhap hang yeu thich"
+    onChange={(e) => {
+      const dataQuery = Object.fromEntries(searchParam.entries());
+      console.log(dataQuery)
+      setSearchParam({
+        ...dataQuery, hang: e.target.value})
+    }} />
     <div>
       <h1>Demo về trang chi tiết sản phẩm</h1>
       <div className="flex">
@@ -36,7 +54,31 @@ const DemoUseEffectDetail = () => {
         </div>
       </div>
     </div>
-  ) : null;
+    <div>
+      <h3>Cac san pham lien quan</h3>
+      <div className="grid grid-cols-3 gap-5">
+      {shoe.relatedProducts?.map((item, index) => {
+        
+        return (
+          <div >
+              <img src={item.image} alt="" />
+              <h3>{item.name}</h3>
+              <p>Giá tiền: {item.price}</p>
+              <Link
+                to={`/demo-use-effect-detail/${item.id}`}
+                className="bg-blue-500 text-white py-2 px-5 rounded-md"
+              >
+                Xem chi tiết
+              </Link>
+            </div>
+        );
+      }
+      )}
+      </div>
+    </div>
+    </>
+    
+  ) 
 };
 
 export default DemoUseEffectDetail;
