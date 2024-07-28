@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 const DemoUseEffectDetail = () => {
@@ -9,6 +9,12 @@ const DemoUseEffectDetail = () => {
   console.log(datagiatien);
   // shoe.tuoi ==> undifined
   const { id } = useParams();
+  let random = id + Math.floor(Math.random() * 6);
+  const randomMemo = useMemo(() => {
+    return random
+  }, [id])
+
+  console.log('random' + random)
   useEffect(() => {
     axios({
       method: "GET",
@@ -29,8 +35,23 @@ const DemoUseEffectDetail = () => {
     }
   }, [])
 
+  const refCustom = useRef(null);
+  const refinput = useRef(null);
+
   return (
     <>
+    <input type="text" placeholder="nhap nam sinh" ref={refinput} onChange={(e) => {
+      console.log(e.target.value)
+      console.log(refinput.current.value)
+    }}/>
+    <p>{refinput?.current?.value}</p>
+    <button className="py-2 px-5 bg-black text-white rounded-md"
+    onClick={() => {
+      refCustom.current.scrollIntoView({ behavior: "smooth" });
+    }}
+    >bam vao de xem san pham lien quan</button>
+    {randomMemo}
+    {/* {random} */}
     <input type="text" className="border p-2 border-black rounded-md" placeholder="vui long nhap hang yeu thich"
     onChange={(e) => {
       const dataQuery = Object.fromEntries(searchParam.entries());
@@ -56,7 +77,7 @@ const DemoUseEffectDetail = () => {
     </div>
     <div>
       <h3>Cac san pham lien quan</h3>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-3 gap-5" ref={refCustom}> 
       {shoe.relatedProducts?.map((item, index) => {
         
         return (

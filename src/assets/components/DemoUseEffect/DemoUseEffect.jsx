@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useCallback } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { NotificationContext } from "../../../App";
@@ -27,11 +27,18 @@ const DemoUseEffect = () => {
   console.log(listShoe);
   function render() {
     console.log("Tôi là giao diện của demouseEffect");
-    return <p>BCS12</p>;
+    return <p>{listShoe && listShoe[0]?.name}</p>;
   }
+  const [number, setnumber] = useState('')
+  //useCallback duoc su dung khi chung ta can quan ly mot function co nen duoc render lai khi component render hay khong 
+  // cac tham so trong dependencies cua useCallback giup thuc hien kiem tra khi nao thi function do duoc render lai de lay du lieu moi
+  const funtionCallback = useCallback(render,[number] )
   return (
     <div>
-      {render()}
+      {funtionCallback()}
+      <input type="text" placeholder="vui long nhap bat ki so" 
+      onChange={(event)=>setnumber(event.target.value)}
+      />
       <div className="grid grid-cols-4 gap-5">
         {/* nếu có dữ liệu thì chạy, không thì sẽ không chạy  */}
         {listShoe?.map((item, index) => {

@@ -10,6 +10,7 @@ import DemoRedux from '../components/DemoRedux/DemoRedux'
 import BaiTapLacLiNgau from '../components/BaiTap/BaiTapLacLiNgau/BaiTapLacLiNgau'
 import DemoUseEffect from '../components/DemoUseEffect/DemoUseEffect'
 import DemoUseEffectDetail from '../components/DemoUseEffect/DemoUseEffectDetail'
+import DemoFormReact from '../components/DemoFormReact/DemoFormReact'
 const useRouteCostom = () => {
     const element = useRoutes([
         {
@@ -43,6 +44,10 @@ const useRouteCostom = () => {
               {
                 path: "/demo-use-effect-detail/:id",
                 element: <DemoUseEffectDetail />,
+              },
+              {
+                path: "/demo-form-react",
+                element: <DemoFormReact />,
               },
           ]
         },
