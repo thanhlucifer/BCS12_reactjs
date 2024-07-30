@@ -1,7 +1,7 @@
 import React from 'react';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { NavLink, Outlet } from 'react-router-dom';
-import {path} from '../../assets/common/path';
+import {path} from '../../common/path';
 import userSlide from '../../redux/slides/userSlide';
 const { Header, Content, Footer } = Layout;
 import { useDispatch, useSelector } from 'react-redux';

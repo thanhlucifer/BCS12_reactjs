@@ -12,7 +12,7 @@ import { Route, Routes } from 'react-router-dom'
 import HomeTemplate from './template/HomeTemplate/HomeTemplate'
 import PageNotFound from './assets/components/PageNotFound/PageNotFound'
 import ShowDetail from './assets/components/ShowDetail'
-import useRouteCostom from './assets/routes/useRouteCostom'
+import useRouteCostom from './routes/useRouteCostom'
 import { message } from 'antd';
 
 export const NotificationContext = React.createContext();
